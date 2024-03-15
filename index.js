@@ -1,6 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import authRoute from "./routes/auth.js";
+import usersRoute from "./routes/users.js";
+import hotelsRoute from "./routes/hotels.js";
+import roomsRoute from "./routes/rooms.js";
+
+
+
 const app = express()
 dotenv.config()
 const connect = async() =>{
@@ -22,9 +29,24 @@ app.get("/user" , (req,res)=>{
 }) 
 
 
+//middleware
+
+app.use(express.json());
 
 
-app.listen(8500 , ()=>{
+
+app.use("/auth" , authRoute);
+app.use("/users" , usersRoute);
+app.use("/hotels" , hotelsRoute);
+app.use("/rooms" , roomsRoute);
+
+
+
+
+
+
+
+app.listen(8300 , ()=>{
     connect()
     console.log("Connected to backend!!")
 })
