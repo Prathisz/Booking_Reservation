@@ -53,3 +53,7 @@ const HostelSchema = new mongoose.Schema({
 });
 
 export default mongoose.model("Hotel",HostelSchema)
+
+
+
+
