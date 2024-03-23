@@ -57,3 +57,5 @@ export default mongoose.model("Hotel",HostelSchema)
 
 
 
+
+
